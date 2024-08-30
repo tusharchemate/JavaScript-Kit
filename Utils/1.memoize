@@ -1,0 +1,31 @@
+//write a memoize function 
+
+function memoize(fn) {
+  const cache = new Map();
+  function memoized(...args) {
+
+    const key = JSON.stringify(args);
+
+    if (cache.has(key)) {
+    console.log("cache", key);
+      return cache.get(key);
+    }
+    const res = fn(...args);
+    cache.set(key, res);
+    return res;
+  }
+  return memoized;
+}
+
+const factorial = (n)=> {
+	if(n == 1 ) return n; 
+  return n * factorial(n-1);
+}
+
+
+const memofun = memoize(factorial);
+
+console.log(memofun(5));
+console.log(memofun(5)); // cached result
+console.log(memofun(15));
+console.log(memofun(15)); // cached result
