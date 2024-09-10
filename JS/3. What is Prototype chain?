@@ -1,0 +1,8 @@
+/* what is Prototype chain? */
+
+1] Prototype chain is used to build an new type of objects based on the existing one.
+2] It is similar to Inheritance in class based language.
+3] When you create an object using constructor funtion or class, created object inherite the properties and behaviour
+from an prototype object.
+
+The Prototype on Object instance is available through Object.getPrototypeOf(Object) or __proto__ property.
