@@ -1,0 +1,43 @@
+/* what are the ways to create an object in JS?
+
+There are many ways to create an object in JS
+1] By using Object literals */
+
+var person = {
+	name:'Tushar',
+  age:34
+}
+
+
+/* 2] By Using Object Constructor */
+const person1 = new Object();
+
+
+/* 3] By using Object.create() method */ 
+
+const laptop = Object.create(null);
+
+/* 4] By using Object.assign method */
+
+const carObject = {
+name:'BMW',
+price:'1.2CR'
+}
+const orgObject = {
+name :'Alpha Grp'
+}
+
+const staff = Object.assign({}, orgObject, carObject);
+
+
+/* 5] By using function constructor */
+
+function Person(name) {
+this.name = name;
+this.age =20
+}
+
+const pObj = new Person('Tushar');
+
+
+
