@@ -1,0 +1,11 @@
+/* what is the purpose of array slice */
+/* 
+slice is used to extract the values from an array.
+
+The slice method does not mutate the array but it return the new subject of array. */
+
+const arr = [1,2,34,53,32];
+
+console.log(arr.slice(2,4)); //34,53
+console.log(arr.slice(3))//53,32
+console.log(arr.slice(0,1)); //1
