@@ -1,0 +1,6 @@
+/* 4 what is JSON */
+
+/* JSON is a text based data format following javascript like syntax, to interchange data between client, server. */
+/* JSON.parse(text);*/
+JSON.stringify(object);
+
