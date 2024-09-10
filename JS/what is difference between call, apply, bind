@@ -1,0 +1,66 @@
+/* what is differnece between call, apply, bind */
+
+/* 1] Call " The call method invokes a function with given this and arguments provided one by one" */
+
+/* example for a call */
+
+const employee = {
+name:'Tushar',
+age:20
+}
+
+const emoployee2 =  {
+name:'Arjun',
+age:33
+}
+
+function invite(greating1, greating2) {
+  console.log(greating1 + "--" + this.name + "--" + this.age + "--"+greating2);
+}
+
+invite.call(employee, 'Hey', "How are you?");
+invite.call(emoployee2, 'Hallo', 'Nice to see you there.');
+
+
+
+/* 2] Apply Invokes this function and allow us to pass an argument as array */ 
+
+const person = {
+name:'Manisha',
+age:20,
+}
+
+const person2 = {
+name:'Abhi',
+age:22
+}
+ 
+function greeting(great1, great2) {
+    console.log(great1 + "---" + this.name + "--" + this.age + "--" + great2);
+}
+
+greeting.apply(person, ["Hey", "Dude"]);
+greeting.apply(person2, ["King", "How old are you?"]);
+
+
+/* 3] Bind - Bind return a new function allows us to pass any no of arguments */ 
+
+const carObject = {
+name:'BMW',
+price:'2CR',
+}
+
+const carObject2 = {
+name:'Merc',
+price:'3CR'
+}
+
+function showMePrice(grt1, grt2){
+console.log(grt1 +"-"+ this.price +"-"+ this.name+ grt2);
+}
+
+const getPrice = showMePrice.bind(carObject);
+const getPrice2 = showMePrice.bind(carObject2);
+
+getPrice("wow",'Nice');
+getPrice2("haaalo", "cool");
