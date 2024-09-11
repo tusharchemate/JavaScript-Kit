@@ -1,0 +1,31 @@
+/* 18. let vs var */
+
+/* var */
+/* var has been available from the beginning of the Js
+var has a function scope.
+varible declared will be hoisted initialized as undefined.
+it is possible to re-declare the variable in the same scope.
+ */
+
+/* let */
+
+/* Intoduced as part of ES6.
+It has block scope.
+Hoisted but not initialized.
+It is not possible to redeclare the variable. */
+
+
+/* dry Run */
+
+function userDetails (username) {
+	if(username) {
+  	console.log(salary); // undefined due to hoistinf]g
+    console.log(age); // reference error can not access before initialization
+    let age = 20;
+    var salary = 100;
+  }
+	console.log(salary); // 1000
+  console.log(age); // error age is not defined
+}
+
+userDetails("John");
