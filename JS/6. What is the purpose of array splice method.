@@ -1,0 +1,12 @@
+/* 6. what is the purpose of array splice method */
+
+/* Array slice() method use to add/remove elements from an array. */
+/* slice method modifies the array and return the deleted elements  */
+
+/* first argument specifies modification adding or deleting of an element where second optional argument states that tthe number of elements to be deleted. */
+
+let arrayIntegersOriginal1 = [1, 2, 3, 4, 5];
+
+const arr = arrayIntegersOriginal1.splice(0,2); // 1,2
+
+console.log(arrayIntegersOriginal1);  // 3,4,5
