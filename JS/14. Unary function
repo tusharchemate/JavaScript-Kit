@@ -1,0 +1,5 @@
+/* 14. What is unary function */
+
+/* A Unary function is a function that accept only single argument, Its stand by single argument accepted by a function.  */
+
+const unaryFunction =(a)=> console.log(a +10);
