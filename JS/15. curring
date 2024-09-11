@@ -1,0 +1,14 @@
+/* 15 What is curring fucntion */
+
+/* Curring is the process of taking a function with multiple arguments.
+and turning it into a sequence of function each with only single argument. */
+
+
+const multiArgFun = (a,b,c) => a +b +c;
+
+const curryUnaryFunction = (a)=> (b)=> (c)=> a+b+c;
+
+
+curryUnaryFunction(1);
+curryUnaryFunction(1)(2);
+curryUnaryFunction(1)(3);
