@@ -1,0 +1,10 @@
+/* 10. What is lambda expression or arrow function */
+
+/* An arraow function is shorter/concise syntax of  functional expression. and does not have its own this , arguments, super*/
+
+/* we can not be used as a constructor */
+
+const  add = (a,b) => a+b;
+
+
+console.log(add(10,3))
