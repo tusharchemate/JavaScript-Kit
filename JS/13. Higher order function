@@ -1,0 +1,11 @@
+/* 13. Higher order fuction */
+
+/* A higher order function is a fuction which is accpet another function as argument or return a function as as a value or both */
+
+const firstOrderFunction =()=> {
+	console.log("Hey Dude Tushar how are you!");
+}
+
+const higherOrderFunction = (ReturnFirstOrderFunction)=> ReturnFirstOrderFunction();
+
+higherOrderFunction(firstOrderFunction);
