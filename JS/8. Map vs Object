@@ -1,0 +1,35 @@
+/* Map Vs Object */
+
+
+/* Map is similar as a Object it keeps an insertion order */
+/* Key are in Map are Order and while retriving it showing the order but in case this is not in case objects */
+/* We can get this size of Object by using size but in case of object we need to find out manually. */
+/* Map Perform better in scanario involving addition/deletion of key  */
+let carMap = new Map();
+
+carMap.set("price", "2CR");
+carMap.set("milage", '10hr');
+carMap.set("color", "Red");
+
+
+carMap.forEach((value, key)=> {
+  console.log(value, key);
+})
+
+for (const [key, value] of carMap) {
+  console.log(`${key}: ${value}`);
+} 
+
+console.log(carMap.size);
+
+
+
+const carObj = {
+	name:'BMW',
+  price:'20CR',
+  /* inStock: 'out of stock' */
+}
+
+const sizeOfCarObj = Object.keys(carObj).length;
+
+console.log(sizeOfCarObj);
