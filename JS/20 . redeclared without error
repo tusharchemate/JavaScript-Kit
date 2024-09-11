@@ -1,0 +1,16 @@
+/* 20. How do we redeclare variable in swith */
+
+
+let counter = 1;
+switch (counter) {
+  case 0: {
+    let name;
+    console.log('No')
+    break;
+  }
+  case 1: {
+    let name; // No SyntaxError for redeclaration.
+    console.log('Yes')
+    break;
+  }
+}
