@@ -1,0 +1,11 @@
+/* 12. What is first class functions */
+
+/* In JS function are first class objects.
+
+First class functions means function in that language 
+threated as any other variable.
+
+ex- we can pass as a argument to another function, can be return by another fuction, and can be assigned as a
+value to a variable.
+
+*/
