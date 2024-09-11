@@ -1,0 +1,16 @@
+/* 7 Slice vs Splice */
+
+/* Slice 
+	
+  1] Does not modifies the original array (Immutable).
+  2] Useful for to select/pick the specified elements from an array.
+  3] Returns the subset of array.
+	
+*/
+
+
+/* Splice
+	1] Does modifies the original array.
+  2] useful for deletion/insertion of an element in an array.
+  3] Returns the deleted elements as array.
+*/
