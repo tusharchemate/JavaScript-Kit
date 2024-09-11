@@ -1,0 +1,12 @@
+/* 17. purpose of let */
+/* 
+The let statement declares a block scope local variable.
+Hence variable defined with let keyword are limited scope to the block. */
+
+let count = 10;
+
+if(counter = 10) {
+	let count = 20;
+  console.log(count);
+}
+console.log(count);
