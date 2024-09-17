@@ -1,0 +1,35 @@
+// create a custon usePrevious Hook
+
+// usePrevious.ts
+import {useRef, useEffect} from 'react';
+
+const usePrevious = (value) => {
+  const ref = useRef();
+
+  useEffect(()=> {
+    ref.current = value;
+  },[value]);
+
+  return ref.current;
+}
+
+
+// App.ts
+
+import {useState} from 'react';
+const App = () => {
+
+const [count, setState] = useState();
+const prevCount = usePrevious(count);
+
+  return (
+  <>
+    <>{prevCount}</>
+    <onClick={()=> setCount(count+1)} > Click Me !</> 
+</>
+  )
+
+}
+
+
+
