@@ -1,0 +1,49 @@
+import "./styles.css";
+import { useState, useEffect } from "react";
+const useFetch = (url) => {
+  const [result, setResult] = useState({
+    data: null,
+    isLoading: true,
+    error: null,
+  });
+  const fetchData = async () => {
+    try {
+      await fetch(url)
+        .then((res) => res.json())
+        .then((data) => {
+          setResult({
+            data: data,
+            isLoading: false,
+            error: null,
+          });
+        });
+    } catch (error) {
+      setResult({
+        data: null,
+        isLoading: false,
+        error: error,
+      });
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, [url]);
+
+  return { result };
+};
+
+export default function App() {
+  const { result: data } = useFetch(
+    "https://jsonplaceholder.typicode.com/todos/1sss"
+  );
+
+  console.log({ data });
+
+  return (
+    <div className="App">
+      <h1>Hello CodeSandbox</h1>
+      <h2>Start editing to see some magic hdddappen!</h2>
+    </div>
+  );
+}
