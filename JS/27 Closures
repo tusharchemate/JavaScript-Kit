@@ -1,0 +1,23 @@
+//27. Closures
+/* 
+Closures are function bundled togheter with it lexical environment witin which function
+was declared.
+Its an inner function has access to the outer function or enclosing function,
+variable and other data, even after the outer function finished its executions.
+
+It has 3 scope chains
+1.Its own
+2. outer chain
+3. Global */
+
+
+function welcome(message) {
+  var greetInfo = function(msg) {
+    console.log(msg);
+  };
+  
+  return greetInfo;
+}
+
+const greet = welcome();
+greet("Hello, Tush!");
