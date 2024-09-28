@@ -1,0 +1,14 @@
+//21. What is Temporal Dead Zone
+/* 
+  Temploral Dead Zone is the specific period, area / block where variable are inaccessible util it has been initialized with value.
+  This behaviour in JS occurs when we are decalaring with let and const keyword.
+*/
+
+const someMethod =() => {
+	 console.log(w); // undefined
+   console.log(q);  // Reference Error
+   var w= 10;
+   let q= 10;
+};
+
+someMethod();
