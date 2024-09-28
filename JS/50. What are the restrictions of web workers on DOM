@@ -1,0 +1,6 @@
+What are the restrictions of web workers on DOM
+WebWorkers don't have access to below javascript objects since they are defined in an external files
+
+Window object
+Document object
+Parent object
