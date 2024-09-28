@@ -1,0 +1,29 @@
+// 20. how do we redeclare variable in switch case
+
+switch(x) {
+
+	case 1 : 
+  let name;
+  break;
+  
+  case 2: 
+  let name; // syntax error for redclaration
+  break;
+ 
+}
+
+
+switch(x) {
+
+	case 1: {
+  	let name;
+    break;
+    
+  }
+  
+  case 2: {
+  let name;
+  break;
+  }
+
+}
