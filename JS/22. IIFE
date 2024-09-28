@@ -1,0 +1,7 @@
+// 22. What is IIFE
+
+Imediately Invoked Function Expression is a JS function that run as soon as defined.
+
+(function test () {
+	console.log('IIFE');
+})();
