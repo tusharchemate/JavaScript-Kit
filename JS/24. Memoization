@@ -1,0 +1,44 @@
+// 24. What is memoization
+
+Memoization is the techinque which is used to improve function perfromance by caching its previous performace result.
+Each time Memoized function called, its parameters are index to cache.
+If data is present it will return without executing entire function. Otherwise function will execute and result will add to the cache.
+
+
+//
+// Write an simple memoized function
+
+function memoized(fn) {
+  const cache = new Map();   
+  return (...args)=> {
+  	 /* console.log('args', args) */
+    const key = JSON.stringify(args);
+    if (cache.has(key))
+    {
+     console.log('cache', key) ;
+     return cache.get(key);
+    }
+   
+    const res = fn(...args);
+    cache.set(key, res);
+    return res;
+  }
+}
+
+
+const add = (a,b,...args) => {
+	return [a,b, ...args].reduce((c,a) => {
+  	return c+a;
+  },0)
+}
+
+const memoFn  = memoized(add);
+console.log(memoFn(1,3,4,4));
+console.log(memoFn(1,3,4,4));
+console.log(memoFn(1,3,4,3));
+console.log(memoFn(1,3,4,4));
+
+
+
+
+
