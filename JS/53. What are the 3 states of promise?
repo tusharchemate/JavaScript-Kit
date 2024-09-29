@@ -1,0 +1,5 @@
+//53. What are the 3 states of promise?
+
+1. Pending : This is an initial state of an promise before operations begins.
+2. Fulfilled: This state indicates that the operation is completed.
+3. Rejected: This state indicates that the operation does not completed.
