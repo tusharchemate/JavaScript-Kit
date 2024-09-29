@@ -1,0 +1,13 @@
+//74. Null Vs Undefind
+
+Null
+1] Its an assignment value which variable point to no object.
+2] Type of null is object.
+3] The null value is a primitive value that represents the null, empty, or non-existent reference.
+4] Converted to 0 while performing primitive operations.
+
+Undefined
+1] It is an assignement where varible is decalred but not been initialized yet.
+2] Type of undefined is undefined.
+3] Indicates absence of variable itself.
+4] Converted to NaN while performing primitive operations.
