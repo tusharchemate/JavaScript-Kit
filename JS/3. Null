@@ -1,0 +1,5 @@
+//73. Null
+// Null value means an intentional absence of any value.
+//It is jS primitive values.
+var user = null;
+console.log(typeof user); //object
