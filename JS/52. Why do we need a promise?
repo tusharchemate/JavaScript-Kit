@@ -1,0 +1,4 @@
+// 52. Why do we need a promise?
+
+// Promise are used to handle asyncronous operations.
+// They are provides an alternative approach to callback by reducing the callback hell and writting an cleaner code.
