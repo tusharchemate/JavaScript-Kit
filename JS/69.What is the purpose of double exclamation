@@ -1,0 +1,5 @@
+//69. What is the purpose of double exclamation
+
+
+The !! operator in JavaScript is used to convert any value into its boolean form. 
+It’s a shorthand way of forcing a value to be either true or false, based on its truthy or falsy nature.
