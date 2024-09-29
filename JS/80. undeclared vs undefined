@@ -1,0 +1,2 @@
+undeclared : These variables do not exist in a program and are not declared.
+undefined : These variables declared in the program but have not assigned any value.
