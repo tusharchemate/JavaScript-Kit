@@ -1,0 +1,14 @@
+// 65. What is the purpose of race method in promise?
+
+//Promise.race() method will return the first instance of promise which is get resolved or rejected.
+
+const promise1 = new Promise((res, rej)=> {
+	setTimeout(()=> res(1),1000);
+});
+
+const promise2 = new Promise((res, rej)=> {
+	setTimeout(()=> res(2), 500);
+})
+
+
+Promise.race([promise1, promise2]).then((val)=> console.log(val)); //2
