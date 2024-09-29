@@ -1,0 +1,6 @@
+// 72. What is undefined Property?
+// Undefined Property means variable is defined but does not initialized a value,
+// or variable is created but does not hold any value.
+
+var user; // Value is undefined, type is undefined
+console.log(typeof user); //undefined
