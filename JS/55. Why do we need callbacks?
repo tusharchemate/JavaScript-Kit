@@ -1,0 +1,20 @@
+// 55. Why do we need callbacks?
+
+// Callbacks are needed because javascript an event driven language.
+// This means that instead of waiting for a response javascript keep executing while listing for other events.
+
+function firstFunction() {
+  // Simulate a code delay
+  setTimeout(function () {
+    console.log("First function called");
+  }, 1000);
+}
+function secondFunction() {
+  console.log("Second function called");
+}
+firstFunction();
+secondFunction();
+
+
+// Second function called
+// First function called
