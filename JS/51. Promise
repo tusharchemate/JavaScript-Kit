@@ -1,0 +1,11 @@
+//51. Promise
+
+// Promise is an object which will tell the eventual completion or failure of the task.
+// It will be one of the 3 states, fulfilled, rejected, pending.
+
+const promise = new Promise((res, rej)=> {
+// 
+});
+
+
+promise.then((value)=> console.log(value));
