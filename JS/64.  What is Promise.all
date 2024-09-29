@@ -1,0 +1,6 @@
+// 64. What is Promise.all ?
+
+// Promise.all() takes an  array of promises (as iterable) as an input an get resolved when all promises get resolved or any one of them are get resjected.
+
+
+Promise.all([Promise1, Promise2, Promise3]) .then(result) => {   console.log(result) }) .catch(error => console.log(`Error in promises ${error}`))
