@@ -1,0 +1,3 @@
+Strict mode in JavaScript is a way to opt into a restricted variant of the language, introduced in ECMAScript 5 (ES5).
+By enabling strict mode, you can catch common coding errors, prevent the use of certain unsafe features, 
+and improve performance in some cases by allowing JavaScript engines to optimize code more efficiently.
