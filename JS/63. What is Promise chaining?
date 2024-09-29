@@ -1,0 +1,13 @@
+// 63. What is Promise chaining?
+
+// The process of executing the asychronous task one by one using promises is known as Promise chain.
+
+new Promise((res, rej)=> {
+setTimeout(()=> res(1), 1000);
+}).then((result)=> {
+		return result *3;
+}).then((res)=> {
+return res+5;
+}).then((finalRes)=> {
+console.log(finalRes)
+})
