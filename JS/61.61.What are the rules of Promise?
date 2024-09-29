@@ -1,0 +1,5 @@
+61.What are the rules of Promise?
+
+1. Promise is an object that supplied an .then () method.
+2. A Pending promise either trasiant into fulfilled or rejected state.
+3. Once promise is setteled must not be change.
