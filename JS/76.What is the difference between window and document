@@ -1,0 +1,13 @@
+76. What is the difference between window and document
+
+Window
+
+1] Its is the root level element in any page.
+2] By default window object is available by explicitly.
+3] It has method like alert(), confirm()
+
+Document
+
+1] It is the direct child of the window object. This is also known as Document Object Model(DOM)
+2] You can access it via window.document or document.
+3] It provides methods like getElementById, getElementsByTagName, createElement etc
