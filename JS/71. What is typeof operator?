@@ -1,0 +1,6 @@
+//71. What is typeof operator?
+
+// We can use type of operator to find the type of javascript variables.
+console.log(typeof "John Abraham") // Returns "string"
+ console.log(typeof (1 + 2)); // Returns "number"
+console.log(typeof [1, 2, 3]); // Returns "object" because all arrays are also objects
