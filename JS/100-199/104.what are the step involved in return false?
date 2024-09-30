@@ -1,0 +1,5 @@
+what are the step involved in return false?
+
+First it stops the browser's default action or behaviour.
+It prevents the event from propagating the DOM
+Stops callback execution and returns immediately when called.
