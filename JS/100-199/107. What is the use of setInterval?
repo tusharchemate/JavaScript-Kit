@@ -1,0 +1,9 @@
+/* What is the use of setInterval? */
+/* 
+setInterval is a method which is called at specified interval or time to call a function. evaluate an 
+function expression. */
+
+
+setInterval(()=> {
+	console.log('Hey')
+},1000);
