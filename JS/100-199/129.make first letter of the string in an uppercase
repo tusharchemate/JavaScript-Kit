@@ -1,0 +1,11 @@
+
+const str = 'tushar';
+
+const capsFirstLetter=(str)=> {
+	
+  return str.charAt(0).toUpperCase() + str.slice(1);
+	
+  }
+const res = capsFirstLetter(str);
+
+console.log(res);
