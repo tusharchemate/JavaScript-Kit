@@ -1,0 +1,11 @@
+/* What is the use of setTimeout?
+
+setTimeout() function used to call or evaluate the another function,
+after certain miliseconds.
+
+ */
+ 
+ 
+ setTimeout(()=> {
+ 	console.log('Good Morning');
+ }, 1000);
