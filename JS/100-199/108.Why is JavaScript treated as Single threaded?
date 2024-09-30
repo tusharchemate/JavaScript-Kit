@@ -1,0 +1,4 @@
+Why is JavaScript treated as Single threaded?
+
+JavaScript is a single-threaded language. Because the language specification does not allow the programmer to write code so that the interpreter can run parts 
+of it in parallel in multiple threads or processes.
