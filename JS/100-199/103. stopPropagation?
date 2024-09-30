@@ -1,0 +1,1 @@
+The stopPropagation method is used to stop the event from bubbling up the event chain.
