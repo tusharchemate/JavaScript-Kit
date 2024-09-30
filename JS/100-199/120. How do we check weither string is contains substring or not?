@@ -1,0 +1,9 @@
+/* 120. How do we check weither string is contains substring or not? */
+
+/* 
+var msg ='Tushar';
+console.log(msg.includes('Tush')); */
+
+/* var mainString = "Tushar";
+console.log(mainString.indexOf('Tush') !== -1); */
+
