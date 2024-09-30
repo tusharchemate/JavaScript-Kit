@@ -1,1 +1,7 @@
 preventDefault() prevent form submission when clicking on submit button and prevent opening the page URL when clicking on hyperlink are some common use cases.
+
+document
+  .getElementById("link")
+  .addEventListener("click", function (event) {
+    event.preventDefault();
+  });
