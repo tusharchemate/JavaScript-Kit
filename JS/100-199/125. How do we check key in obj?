@@ -1,0 +1,8 @@
+125. How do we check key in obj?
+
+1] By using in operator
+"key" in obj;
+
+2] Using hasOwnProperty method
+obj.hasOwnProperty("key");
+
