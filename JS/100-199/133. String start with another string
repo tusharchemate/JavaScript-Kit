@@ -1,0 +1,2 @@
+"Good morning".startsWith("Good"); // true
+"Good morning".startsWith("morning"); // false
