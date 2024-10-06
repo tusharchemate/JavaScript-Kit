@@ -1,0 +1,9 @@
+var obj = {
+key:'Tushar',
+key2:'Chemate'
+}
+
+obj.key3 = 'Devidas';
+obj['key4'] ='200'
+
+console.log(obj)
