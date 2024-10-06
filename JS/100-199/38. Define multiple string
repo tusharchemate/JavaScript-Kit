@@ -1,0 +1,3 @@
+var str =
+  "This \n\ is a \n\ very lengthy \n\ sentence!";
+console.log(str);
