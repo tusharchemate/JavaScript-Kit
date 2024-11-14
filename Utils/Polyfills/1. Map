@@ -1,0 +1,13 @@
+// Create a simple polyfill for map
+Array.prototype.myMap = function(callback) {
+  const newArray = []; // Create a new array to store results
+  for (let i = 0; i < this.length; i++) { // Loop through each item in the original array
+    newArray.push(callback(this[i], i, this)); // Apply the callback and add the result to newArray
+  }
+  return newArray; // Return the new array
+};
+
+
+const numbers = [1, 2, 3];
+const doubled = numbers.myMap(x => x * 2); // [2, 4, 6]
+console.log(doubled);
