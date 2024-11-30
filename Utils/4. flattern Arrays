@@ -1,0 +1,21 @@
+// flattern the array
+const arr = [1,2,[3,4,[1]]];
+
+
+const flatternArray = (arr) => {
+
+	let res = [];  
+  	for(let item of arr) {
+    if(Array.isArray(item)) {
+     return res.concat(flatternArray(item));   
+    } else {
+    res.push(item);
+    }
+  }
+  
+  return res;
+}
+
+
+
+console.log(flatternArray(arr));
