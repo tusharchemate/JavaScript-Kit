@@ -1,0 +1,27 @@
+// Keyboard Event Handling
+import React, { useEffect } from 'react';
+
+export function App(props) {
+  useEffect(() => {
+    const KeyDownEvents = (event) => {
+      switch (event) {
+        case "Enter": console.log('You Pressed Enter');
+          break;
+        case "ArrowUp": console.log('You Pressed Key UP key');
+          break;
+        default: console.log('You have pressess', event.key);
+      }
+    }
+    window.addEventListener("keydown", KeyDownEvents);
+
+  }, []);
+
+  return (
+    <div className='App'>
+      <h2>Press any key for Test !!</h2>
+    </div>
+  );
+}
+
+// Log to console
+console.log('Hello console')
