@@ -1,0 +1,55 @@
+// stopwatch app
+import React, { useEffect, useState } from 'react';
+
+export function App(props) {
+  const [isRunning, setIsRunning] = useState(false);
+  const [timer, setTimer] = useState(0);
+
+  useEffect(() => {
+    let interval;
+    if (isRunning) {
+      interval = setInterval(() => {
+        setTimer(prev => prev + 1);
+      }, 1000);
+    }
+
+    return () => clearInterval(interval);
+  }, [isRunning]);
+
+  const startTimer = () => {
+    setIsRunning(true);
+  };
+
+  const stopTimer = () => {
+    setIsRunning(false);
+  };
+
+  const resetTimer = () => {
+    setIsRunning(false);
+    setTimer(0);
+  };
+
+  const formatTime = timeInSeconds => {
+    const minutes = Math.floor(timeInSeconds / 60)
+      .toString()
+      .padStart(2, '0');
+    const seconds = (timeInSeconds % 60).toString().padStart(2, '0');
+
+    const sec = (timeInSeconds % 60).toString().padStart(2, '0');
+    const min = Math.floor(timeInSeconds / 60).toString().padStart(2, '0');
+    return `${min}:${sec}`;
+
+  };
+
+  return (
+    <div className='App'>
+      {formatTime(timer)}
+      <button onClick={() => startTimer()}>Start </button>
+      <button onClick={() => stopTimer()}>Stop </button>
+      <button onClick={() => resetTimer()}> Reset </button>
+    </div>
+  );
+}
+
+// Log to console
+console.log('Hello console');
