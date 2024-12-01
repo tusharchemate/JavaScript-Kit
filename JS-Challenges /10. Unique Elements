@@ -1,0 +1,16 @@
+// remove duplicates
+
+const arr =["tushar", "tushar",1,1,-1,Infinity];
+
+const removeDuplicates =(arr)=> {
+	let uniqeElements =[];
+  
+  for(let item of arr) {
+  	if(!uniqeElements.includes(item)) {
+    	uniqeElements.push(item);
+    }
+  }
+	return uniqeElements;
+}
+
+console.log(removeDuplicates(arr));
