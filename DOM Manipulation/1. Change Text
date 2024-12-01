@@ -1,0 +1,36 @@
+<!doctype html>
+ <html>
+   <head>
+   <title>Text Change DOM</title>
+     <body>
+       <h1 id="header">Tushar</h1>
+    <button id="button">Change Text</button>
+    <button id="revert">
+    Revert
+    </button>
+     </body>
+   </head>
+ </html>
+
+
+ -------------------------  JS Script  -------------------------------
+
+ 
+const textToChange = document.getElementById('header');
+
+const originalText = textToChange.innerHTML;
+
+const button = document.getElementById('button');
+
+button.addEventListener('click', function() {
+	console.log('Hey')
+	textToChange.innerHTML ='Chemate Tushar';
+})
+
+const revertButton = document.getElementById('revert');
+
+revertButton.addEventListener('click',function(){
+	console.log('revert');
+  textToChange.innerHTML = originalText;
+	
+})
