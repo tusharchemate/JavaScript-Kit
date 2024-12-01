@@ -1,0 +1,15 @@
+// find max and second max with sort
+
+const arr = [1,2,3,4,55,-12,3,-331];
+
+const findMaxNumbers  =(arr)=> {
+  const sortedArr = arr.sort((a,b)=> b - a); // sort with desc order
+  console.log(sortedArr);
+	return {max: sortedArr[0], secondMax:sortedArr[1],
+  			min: sortedArr[sortedArr.length - 1],
+        secondMin:sortedArr[sortedArr.length -2],
+  }
+}
+
+
+console.log(findMaxNumbers(arr));
