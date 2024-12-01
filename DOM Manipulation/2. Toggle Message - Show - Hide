@@ -1,0 +1,26 @@
+
+<!doctype html>
+ <html>
+   <head>
+   <title>Text Change DOM</title>
+     <body>
+       <h1 id="message">This is hidden Message</h1>
+       <button onClick="toggleVisibility()">Toggle Message</button>
+     </body>
+   </head>
+ </html
+
+
+--------------- Js Script -----------------------
+
+
+function toggleVisibility () {
+	
+  const message = document.getElementById('message');
+  
+  if(message.style.display === 'none') {
+  	message.style.display ='block';
+  } else {
+  	message.style.display ='none';
+  }
+}
