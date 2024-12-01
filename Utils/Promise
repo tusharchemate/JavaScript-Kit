@@ -1,0 +1,18 @@
+// Promise 
+
+const promise = new Promise((resolve, reject)=> {
+	
+  let isHomeWorkDone = true;
+  
+  if(isHomeWorkDone) {
+  	resolve('You will get toll');
+  } else {
+  	reject('You will not getting anything');
+  }
+  
+});
+
+
+promise.then((res)=> {
+	console.log(res);
+}).catch((err)=> console.log('err', err));
