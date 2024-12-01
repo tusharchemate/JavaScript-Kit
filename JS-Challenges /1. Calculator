@@ -1,0 +1,17 @@
+ //calculator
+ 
+ const calculator =(num1, num2, operator)=> {
+ 		// switch case 
+    switch(operator) {
+    	
+      case '+': return num1 + num2; break;
+      case '-' : return num1 - num2; break;
+      case '*' : return num1 * num2; break;
+      case '/' : return num1 / num2; break;
+      default: throw new Error("Operator is not supported");
+    }
+ }
+ 
+ const res = calculator(10, 10, '/');
+ 
+ console.log(res);
