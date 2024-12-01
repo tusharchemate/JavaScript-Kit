@@ -1,0 +1,20 @@
+<!doctype html>
+ <html>
+   <head>
+   <title>Text Change DOM</title>
+     <body>
+       <h1 id="removeMe">This element will be removed!</h1>
+       <button onClick="removeElement()">Remove Me</button>
+     </body>
+   </head>
+ </html>
+
+
+ ---------------------------- JS ------------------------
+
+ // Remove an Element
+
+function removeElement () {
+	const element = document.getElementById('removeMe');
+  element.remove();
+}
