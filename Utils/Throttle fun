@@ -1,0 +1,30 @@
+// throttle fuction
+
+const throttleFunc = (func, delay)=> {
+	let timeout;
+	return function (...args) {
+  	if(!timeout) {
+    	
+      func.apply(this, args);
+   timeout = setTimeout(()=> {
+    		timeout = null;
+    }, delay);
+    	
+  
+    }
+  	
+  }
+
+}
+
+const printMessage = () => console.log('Hey Tush');
+
+const myThrottle = throttleFunc(printMessage, 100);
+
+myThrottle();
+myThrottle();
+
+setTimeout(myThrottle, 400)
+myThrottle();
+
+
