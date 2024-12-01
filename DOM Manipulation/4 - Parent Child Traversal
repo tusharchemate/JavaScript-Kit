@@ -1,0 +1,29 @@
+<!doctype html>
+ <html>
+   <head>
+   <title>DOM manipulation</title>
+     <body>
+       <div id="parent" >
+           <div id="child">
+             This is Child Element
+           </div>
+        <button onClick='getParentChild()'>
+        Get parent and Child
+        </button>
+       </div>
+     </body>
+   </head>
+ </html>
+
+
+ ---------------- JS -----------------------
+ 
+function getParentChild () {
+
+	const child = document.getElementById('child');
+  
+  const parent = child.parentElement;
+	
+	console.log('Hey ', `${parent.id} - ${child.id}`)  
+
+}
