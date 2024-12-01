@@ -1,0 +1,13 @@
+// find max no
+
+const findMaxNumber = (arr)=> {
+  let max = arr[0];
+  for(let num of arr) {
+    if(num > max) max = num;
+  }
+  return max;
+}
+
+const arr = [-1,11,12,13,-3333,-11111,11];
+console.log(findMaxNumber(arr));
+
