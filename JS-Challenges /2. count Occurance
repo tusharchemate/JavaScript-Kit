@@ -1,0 +1,14 @@
+// count of Occurance
+
+const countOccurance =(str, char)=> {
+	let count = 0;
+  for(let letter in str) {
+  	str[letter] === char ? count++ : count;
+  }
+  return count;
+	
+}
+
+const res = countOccurance('TusharTushar', 'a');
+
+console.log(res);
