@@ -16,3 +16,15 @@ const sisGift = new Promise((resolve, reject)=> {
 
 Promise.allSettled([momsGift, dadsGift, sisGift]).then((res)=> console.log(res)).catch((err)=> console.log(err));
 
+// result 
+/* 
+[{
+  status: "fulfilled",
+  value: "Moms Diamond Ring Recived"
+}, {
+  status: "fulfilled",
+  value: "Dads Bike just arrived"
+}, {
+  reason: "Sis's Mobile Ordered ..",
+  status: "rejected"
+}] */
