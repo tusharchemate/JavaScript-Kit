@@ -1,0 +1,18 @@
+// Promise.allSettled
+
+const momsGift = new Promise((resolve, reject)=> {
+	setTimeout(()=> resolve("Moms Diamond Ring Recived"), 1000);
+});
+
+
+const dadsGift = new Promise((reslove, reject)=> {
+  setTimeout(()=> reslove("Dads Bike just arrived"), 2000);
+});
+
+const sisGift = new Promise((resolve, reject)=> {
+	setTimeout(()=> reject("Sis's Mobile Ordered .."), 100);
+});
+
+
+Promise.allSettled([momsGift, dadsGift, sisGift]).then((res)=> console.log(res)).catch((err)=> console.log(err));
+
