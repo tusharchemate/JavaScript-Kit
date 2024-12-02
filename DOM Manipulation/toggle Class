@@ -1,0 +1,28 @@
+<!Doctype html>
+ <html>
+   <head>
+     <title>Dom Manipulation</title>
+     <body>
+       <h1 class="heading">
+          Hover on Me!
+       </h1>
+       <button onClick="toggleClass()" >
+         Toggle class
+       </button>
+     </body>
+   </head>
+ </html>
+
+----------------- JS --------------------
+
+
+function toggleClass () {
+const div = document.querySelector('.heading');
+div.classList.toggle("high")
+}
+
+
+---------------- css -------------------
+.high {
+  background-color:red
+}
