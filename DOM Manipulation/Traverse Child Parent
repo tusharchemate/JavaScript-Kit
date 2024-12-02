@@ -1,0 +1,28 @@
+<!Doctype html>
+ <html>
+   <head>
+     <title>Dom Manipulation</title>
+     <body>  
+      <div id="parentElement">
+        <div id="childElement">
+          I am child ..
+        </div>
+        <button onClick="traverse()">
+        Traverse
+        </button>
+      </div>
+     </body>
+   </head>
+ </html>
+
+
+----------------Js ----------------------
+function traverse() {
+	const child = document.getElementById('parentElement').children;
+  console.log('child', child);
+  
+  const parent = document.getElementById('childElement').parentElement;
+  
+  console.log('parent', parent);
+  
+}
