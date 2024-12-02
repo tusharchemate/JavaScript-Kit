@@ -1,0 +1,26 @@
+<!Doctype html>
+ <html>
+   <head>
+     <title>Dom Manipulation</title>
+     <body>  
+      <div id="parent">
+        This is parent element.
+      </div>
+      <button onclick="addChild()">
+        Add Child
+      </button>
+     </body>
+   </head>
+ </html>
+
+
+------------------- Js -------------------
+
+function addChild () {
+	const parent = document.getElementById('parent');
+    
+ 	const child = document.createTextNode('Hey Tush how are you doing...');
+  
+  parent.appendChild(child);
+  
+}
