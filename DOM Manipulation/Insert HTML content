@@ -1,0 +1,22 @@
+<!Doctype html>
+ <html>
+   <head>
+     <title>Dom Manipulation</title>
+     <body>  
+      <div id="container">
+         This is an existing content.
+      </div>
+      <button onclick="addMore()">
+        Add More
+      </button>
+     </body>
+   </head>
+ </html>
+
+
+____________________- JS __________________________
+
+function addMore () {
+	const container = document.getElementById('container');
+  container.innerHTML += "<p> This is new Paragraph! </p>"
+}
