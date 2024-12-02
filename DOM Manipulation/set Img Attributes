@@ -1,0 +1,21 @@
+<!Doctype html>
+ <html>
+   <head>
+     <title>Dom Manipulation</title>
+     <body>  
+      <img id="img" src='test.png' alt="unknown" />
+      <button onClick="changeImage()" >
+        Change Image
+      </button>
+     </body>
+   </head>
+ </html>
+
+
+ --------------- Js -----------------
+
+ function changeImage () {
+		const myImg = document.getElementById('img');
+		myImg.setAttribute('src', 'new.png');
+    myImg.setAttribute('alt','Tushar');
+}
