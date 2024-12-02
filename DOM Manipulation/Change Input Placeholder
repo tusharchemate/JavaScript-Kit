@@ -1,0 +1,19 @@
+<!Doctype html>
+ <html>
+   <head>
+     <title>Dom Manipulation</title>
+     <body>  
+       <input id="input" type="text" placeholder="Please enter" />
+      <button onclick="changeInputPlaceholder()">
+       Change Input Placeholder
+      </button>
+     </body>
+   </head>
+ </html>
+
+--------------- JS ----------------
+
+function changeInputPlaceholder () {
+	const input = document.getElementById('input');
+	input.placeholder ="Tushar"
+}
