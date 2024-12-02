@@ -1,0 +1,19 @@
+<!Doctype html>
+ <html>
+   <head>
+     <title>Dom Manipulation</title>
+     <body>  
+     
+      <button id="btn" onclick="disableMe()">
+        Disable Me
+      </button>
+     </body>
+   </head>
+ </html>
+
+
+---------------- JS -----------------
+function disableMe () {
+	const button = document.getElementById('btn');
+  button.disabled = true;
+}
