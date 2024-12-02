@@ -1,0 +1,25 @@
+<!Doctype html>
+ <html>
+   <head>
+     <title>Dom Manipulation</title>
+     <body>
+        <ul id="unList">   
+          <li> Mango </li>
+        </ul>
+        <button onClick="addListElement()">
+        Add
+        </button>
+     </body>
+   </head>
+ </html>
+
+
+
+----------------- JS ------------------------
+
+function addListElement() {
+	const ul = document.getElementById('unList');
+  const newEl = document.createElement("li");
+  newEl.textContent ='Apple';
+  ul.appendChild(newEl);
+}
