@@ -1,0 +1,20 @@
+<!Doctype html>
+ <html>
+   <head>
+     <title>Dom Manipulation</title>
+     <body>  
+     <button id="button" >
+       Click Me!
+     </button>
+     </body>
+   </head>
+ </html>
+
+
+---------------- JS ------------------------
+
+
+document.getElementById('button').addEventListener('click',()=>{
+	console.log('Yeah!!')
+})
+
