@@ -1,0 +1,22 @@
+<!Doctype html>
+ <html>
+   <head>
+     <title>Dom Manipulation</title>
+     <body>  
+     <h1 id='para'>
+     This paragraph will be removed soon!
+     </h1>
+     <button onclick="removePara()">
+       Remove Paragraph
+     </button>
+     </body>
+   </head>
+ </html>
+
+
+-------------- JS ----------------
+
+function removePara () {
+	const div = document.getElementById('para');
+  div.remove();
+}
