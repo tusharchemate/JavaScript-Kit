@@ -1,0 +1,26 @@
+<!Doctype html>
+ <html>
+   <head>
+     <title>Dom Manipulation</title>
+     <body>
+       <h1 id="heading">
+          Tushar Chemate
+       </h1>
+       <button onClick="changeColor()" >
+         Change Color
+       </button>
+     </body>
+   </head>
+ </html>
+
+
+---------------- JS ----------------------
+
+
+function changeColor () {
+const heading = document.getElementById('heading');
+heading.style.color ='red';
+heading.style.fontSize ='40px';
+heading.style.backgroundColor="Yellow"
+}
+
