@@ -1,0 +1,11 @@
+
+// curried func
+const curriedFunction =(len)=> {
+  return (height)=> {
+  return (width) => {
+    return len + height + width; 
+   }
+  }	
+}
+
+console.log(curriedFunction(1)(2)(3));
