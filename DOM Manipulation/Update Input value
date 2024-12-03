@@ -1,0 +1,20 @@
+<!Doctype html>
+ <html>
+   <head>
+     <title>Dom Manipulation</title>
+     <body>  
+        <input type="text" value="tushar"  id="in"/>
+        <button onClick="updateValue()">
+          Update
+        </button>
+     </body>
+   </head>
+ </html>
+
+
+------------ Js ---------------
+const updateValue =()=> {
+  const input = document.getElementById('in');
+  input.value ="Tushar Devidas Chemate";
+}
+
