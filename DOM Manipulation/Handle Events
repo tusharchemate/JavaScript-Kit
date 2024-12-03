@@ -1,0 +1,18 @@
+<!Doctype html>
+ <html>
+   <head>
+     <title>Dom Manipulation</title>
+     <body>  
+       <button id="button" >
+         Click Me !
+       </button>
+     </body>
+   </head>
+ </html>
+
+------------------- JS ----------------------
+const button = document.getElementById('button');
+
+button.addEventListener('click',()=> {
+	console.log('Hey Tush!!');
+})
