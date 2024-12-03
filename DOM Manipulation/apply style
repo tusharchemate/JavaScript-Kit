@@ -1,0 +1,27 @@
+<!Doctype html>
+ <html>
+   <head>
+     <title>Dom Manipulation</title>
+     <body>  
+       <div id="name">
+        Hey Tush what are you doing Man !
+ 
+       </div>
+     
+       <button id="button" >
+         Click Me !
+       </button>
+     </body>
+   </head>
+ </html>
+
+
+-------------- jS ---------------------
+
+const button = document.getElementById('button');
+
+button.addEventListener('click',()=> {
+  const id = document.getElementById('name');
+  id.style.color ='blue'
+  
+})
