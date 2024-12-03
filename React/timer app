@@ -1,0 +1,28 @@
+import React, { useState, useEffect } from 'react';
+
+export function App(props) {
+  const [timer, setTimer] = useState(100);
+  const [isRunning, setIsRunning] = useState(false);
+
+  useEffect(() => {
+    if (isRunning) {
+      setInterval(() => {
+        setTimer(pre => pre + 1);
+      }, 1000);
+    }
+  }, [isRunning]);
+
+  const formatTimer = timer => {
+    let sec = timer % 60;
+    let min = Math.floor((timer % 3600) / 60);
+    return `${String(min).padStart(2, '0')} : ${String(sec).padStart(2, '0')} `;
+  };
+
+  return (
+    <div className='App'>
+      {formatTimer(timer)}
+
+      <button onClick={() => setIsRunning(true)}> Start Timer </button>
+    </div>
+  );
+}
