@@ -1,0 +1,25 @@
+<!Doctype html>
+ <html>
+   <head>
+     <title>Dom Manipulation</title>
+     <body>  
+       <div id="heading">
+         This is Tuhsar
+         <span> Hey Tush !</span>
+       </div>
+        <button onClick="cloneMe()">
+          Clone
+        </button>
+     </body>
+   </head>
+ </html>
+
+
+------------- JS ------------------
+
+const cloneMe =()=> {
+  const original = document.getElementById('heading');
+  const clone = original.cloneNode(true);
+  document.body.appendChild(clone);
+}
+
