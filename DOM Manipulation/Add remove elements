@@ -1,0 +1,28 @@
+<!Doctype html>
+ <html>
+   <head>
+     <title>Dom Manipulation</title>
+     <body>  
+        <button onClick="append()" >
+          Append
+        </button>
+        <button onClick="remove()">
+        Remove
+        </button>
+     </body>
+   </head>
+ </html>
+
+
+-------------- js ----------------------
+
+function append() {
+	const newDiv = document.createElement('div');
+  newDiv.textContent ="Hey Tush";
+  document.body.appendChild(newDiv);
+}
+
+function remove () {
+const newDiv = document.querySelector('div');
+	document.body.removeChild(newDiv);
+}
