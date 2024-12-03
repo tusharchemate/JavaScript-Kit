@@ -1,0 +1,40 @@
+<!Doctype html>
+ <html>
+   <head>
+     <title>Dom Manipulation</title>
+     <body>  
+        <div id="name">
+          Hey Tush~ how are you?
+        </div>
+        <div class="age">
+          My age is 20
+        </div>
+        <div class="myClass">
+        </div>
+        <button onClick="selectElementBy()" > Select </button>
+     </body>
+   </head>
+ </html>
+
+----------------- Js -------------------------
+
+ function selectElementBy () {
+ 		
+    const id = document.getElementById('name');
+    
+    /* console.log(id.textContent) */;
+    
+    const byClasss =  document.getElementsByClassName('age');
+    
+    /* console.log("==class", byClasss) */;
+    
+    const byTag = document.getElementsByTagName('div');
+    
+    const bySelector = document.querySelector('.myClass');
+    
+    const bySelectorAll = document.querySelectorAll('.myClass');
+    
+    console.log(byTag);
+  
+ 
+ }
