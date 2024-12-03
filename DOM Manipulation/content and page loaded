@@ -1,0 +1,7 @@
+document.addEventListener('DOMContentLoaded',()=> {
+	console.log('Dom fully loaded and parsed');
+})
+
+window.addEventListener('load',()=> {
+	console.log('All resouces are fully loaded');
+})
