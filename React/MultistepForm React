@@ -1,0 +1,40 @@
+import React, { useState } from 'react';
+
+export function App(props) {
+  const [step, setStep] = useState(1);
+
+  const onNextClick = () => {
+    setStep(prev => prev + 1);
+  };
+
+  const onPrevClick = () => {
+    setStep(prev => prev - 1);
+  };
+
+  const renderStep = () => {
+    switch (step) {
+      case 1:
+        return <div>Tushar </div>;
+
+      case 2:
+        return <div> Address : Pune </div>;
+
+      case 3:
+        return <div> Bank details : 3472672 </div>;
+
+      default:
+        null;
+    }
+  };
+
+  return (
+    <div className='App'>
+      <div>{renderStep(step)}</div>
+      <button onClick={onNextClick}>next </button>
+      <button onClick={onPrevClick}>prev </button>
+    </div>
+  );
+}
+
+// Log to console
+console.log('Hello console');
