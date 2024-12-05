@@ -1,0 +1,55 @@
+import React, { useState } from 'react';
+
+export function App() {
+  const [todoList, setTodoList] = useState([]);
+  const [currentTodo, setCurrentTodo] = useState('');
+  const [editIndex, setEditIndex] = useState(null);
+
+  const addOrUpdateItem = () => {
+    if (!currentTodo.trim()) return;
+
+    const updatedList = [...todoList];
+    if (editIndex !== null) {
+      updatedList[editIndex] = currentTodo; // Update item
+    } else {
+      updatedList.push(currentTodo); // Add new item
+    }
+
+    setTodoList(updatedList);
+    setCurrentTodo('');
+    setEditIndex(null);
+  };
+
+  const deleteItem = (index) => {
+    setTodoList(todoList.filter((_, i) => i !== index));
+  };
+
+  const editItem = (index) => {
+    setCurrentTodo(todoList[index]);
+    setEditIndex(index);
+  };
+
+  return (
+    <div>
+      <h1>Todo List</h1>
+      <input
+        type="text"
+        value={currentTodo}
+        onChange={(e) => setCurrentTodo(e.target.value)}
+        placeholder="Enter a todo..."
+      />
+      <button onClick={addOrUpdateItem}>
+        {editIndex !== null ? 'Update' : 'Add'}
+      </button>
+      <ul>
+        {todoList.map((item, index) => (
+          <li key={index} style={{ display: 'flex', alignItems: 'center' }}>
+            <span style={{ flex: 1 }}>{item}</span>
+            <button onClick={() => editItem(index)}>Edit</button>
+            <button onClick={() => deleteItem(index)}>Delete</button>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
