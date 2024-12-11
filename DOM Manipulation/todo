@@ -1,0 +1,107 @@
+<html>
+  <head>
+  
+  <title> Todo List </title>  
+  </head>
+  
+  <body>
+    
+    <input type="text" id='todoInput' placeholder="Please enter ..."/>
+    <button id="addButton" >
+    Add Todo 
+    </button>
+    <ul id="todoList">
+    
+    </ul>
+    
+  </body>
+
+</html>
+
+-------- css ------
+.completed {
+  text-decoration: line-through;
+}
+
+--------- js --------
+
+// Select DOM elements
+const todoInput = document.getElementById("todoInput");
+const addButton = document.getElementById("addButton");
+const todoList = document.getElementById("todoList");
+
+// Array to hold todos
+let todos = [];
+
+// Function to render todos
+function renderTodos() {
+  todoList.innerHTML = ""; // Clear the list
+  todos.forEach((todo) => {
+    const li = document.createElement("li");
+    // Task text
+    const span = document.createElement("span");
+    span.textContent = todo.text;
+    if (todo.completed) {
+      span.classList.add("completed");
+    }
+    li.appendChild(span);
+
+    // Toggle button
+    const toggleButton = document.createElement("button");
+    toggleButton.textContent = todo.completed ? "Undo" : "Done";
+    toggleButton.onclick = () => toggleTodo(todo.id);
+    li.appendChild(toggleButton);
+
+    // Edit button
+    const editButton = document.createElement("button");
+    editButton.textContent = "Edit";
+    editButton.onclick = () => editTodo(todo.id);
+    li.appendChild(editButton);
+
+    // Delete button
+    const deleteButton = document.createElement("button");
+    deleteButton.textContent = "Delete";
+    deleteButton.onclick = () => deleteTodo(todo.id);
+    li.appendChild(deleteButton);
+
+    todoList.appendChild(li);
+  });
+}
+
+// Add a new todo
+function addTodo() {
+  const text = todoInput.value.trim();
+  if (text === "") return alert("Please enter a task.");
+
+  todos.push({ id: Date.now(), text, completed: false });
+  todoInput.value = ""; // Clear input
+  renderTodos();
+}
+
+// Toggle completed state
+function toggleTodo(id) {
+  todos = todos.map((todo) =>
+    todo.id === id ? { ...todo, completed: !todo.completed } : todo
+  );
+  renderTodos();
+}
+
+// Edit a todo
+function editTodo(id) {
+  const todo = todos.find((todo) => todo.id === id);
+  const newText = prompt("Edit your task:", todo.text);
+  if (newText) {
+    todo.text = newText.trim();
+    renderTodos();
+  }
+}
+
+// Delete a todo
+function deleteTodo(id) {
+  todos = todos.filter((todo) => todo.id !== id);
+  renderTodos();
+}
+
+// Add event listeners
+addButton.addEventListener("click", addTodo);
+
