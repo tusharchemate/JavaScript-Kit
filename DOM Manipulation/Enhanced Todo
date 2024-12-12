@@ -1,0 +1,87 @@
+// select DOM Elements
+const todoInput = document.getElementById('todoInput');
+const addButton = document.getElementById('addButton');
+const todoList = document.getElementById('todoList');
+
+
+// create renderTodo function
+// creating todos array to store todos.
+
+let todos = [];
+
+function renderTodo () {
+// clear list
+todoList.innerHTML =""
+
+// will iterate over each todo
+  todos.forEach((todo) => {
+  
+  const li = document.createElement('li');
+  
+  const span = document.createElement('span');
+  
+  span.textContent =todo.text; // todo.text
+  
+  li.appendChild(span);
+  
+  // creating toggle button
+  
+  const toggleButton = document.createElement('button');
+  toggleButton.textContent = todo.completed ? 'Undo' : 'Done';
+  toggleButton.onclick =()=> toggleTodo(todo.id);
+  if(todo.completed) {
+  span.classList.add('completed');
+  }
+  li.appendChild(toggleButton);
+  
+  
+  const updateButton = document.createElement('button');
+  updateButton.textContent ='Update';
+  updateButton.onclick =() => updateTodo(todo.id);
+  li.appendChild(updateButton);
+  
+  
+  const deleteButton = document.createElement('button');
+  deleteButton.textContent = 'Delete';
+  deleteButton.onclick =()=> deleteTodo(todo.id);
+  li.appendChild(deleteButton);
+ 
+  // will be appending list to ul
+  todoList.appendChild(li);
+  
+  })
+}
+
+
+
+function addTodo () {
+  const text = todoInput.value.trim();
+  if(text === "") return alert("Please Enter Todo item")
+  todos.push({id:Date.now(), text: text, completed:false})
+	renderTodo();
+}
+
+function toggleTodo(id) {
+  todos = todos.map((item) => 
+    item.id === id ? { ...item, completed: !item.completed } : item
+  );
+  renderTodo();
+}
+
+function updateTodo (id) {
+	
+  let todo = todos.find((todo)=> todo.id == id);
+  
+  const newText = prompt("please update todo", todo.text);
+  if(newText) {
+  	todo.text = newText;
+  }
+  renderTodo();
+}
+
+function deleteTodo (id) {
+    todos = todos.filter((todo)=> todo.id !==id);
+    renderTodo();
+}
+
+addButton.addEventListener('click',addTodo);
