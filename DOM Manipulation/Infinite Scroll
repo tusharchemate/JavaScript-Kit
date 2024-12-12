@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Infinite Scroll</title>
+  <style>
+    #list {
+      max-height: 400px;
+      overflow-y: auto;
+      border: 1px solid #ddd;
+      padding: 10px;
+    }
+    .item {
+      padding: 10px;
+      margin: 5px 0;
+      background: #f0f0f0;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Simple Infinite Scroll</h1>
+  <div id="list"></div>
+  <script src="script.js"></script>
+</body>
+</html>
+
+
+------ js --------
+
+
+
+`const list = document.getElementById("list");
+
+// Simulated API fetch function
+const fetchMyData = ()=> {
+  return Array.from({length: 10}, (_, i) => `Items ${i}`);
+}
+
+// Load and append new items
+const loadMoreItems = () => {
+
+const items = fetchMyData();
+
+items.forEach((item)=> {
+const divs = document.createElement('div');
+divs.className ='item';
+divs.textContent=item;
+list.appendChild(divs);
+})
+}
+
+// Scroll event listener
+list.addEventListener('scroll',()=> {
+if(list.scrollTop + list.clientHeight >= list.scrollHeight) {
+loadMoreItems();
+}
+
+})
+
+// Initial load
+loadMoreItems();
+`
