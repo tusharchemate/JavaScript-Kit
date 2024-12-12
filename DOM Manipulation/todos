@@ -1,0 +1,75 @@
+// creating todo app in js
+
+// Select DOM elements
+const todoInput = document.getElementById('todoInput');
+const addButton = document.getElementById('addButton');
+const todoList = document.getElementById('todoList');
+
+// create todos array to store todos
+let todos =[]; // initialize as empty
+
+
+// will create renderTodos() 
+function renderTodos () {
+// clear todoList 
+todoList.innerHTML =" ";
+
+todos.forEach((todo)=> {
+// will be creating li 
+const li = document.createElement('li');
+// will be creating span for todo text
+const spanText = document.createElement('span');
+spanText.textContent = todo.text;
+li.appendChild(spanText);
+
+// will create 3 buttons - complete update and delete
+const updateBtn = document.createElement('button');
+updateBtn.textContent = 'Update';
+updateBtn.onclick =()=> updateTodo(todo.id);
+
+li.appendChild(updateBtn);
+
+const deleteBtn = document.createElement('button');
+deleteBtn.textContent ="Delete";
+deleteBtn.onclick =()=> deleteTodo(todo.id);
+
+li.appendChild(deleteBtn);
+
+// will append the li to ul
+todoList.appendChild(li);
+})
+
+}
+
+function addTodo () {
+const input = todoInput.value.trim();
+if(input == "") return alert("Please Enter Todo Item.");
+	
+ todos.push({id: Date.now(), text:input, completed:false})
+  
+renderTodos();
+}
+
+function updateTodo (id) {
+const updatedTodo = todos.find((item)=> item.id == id);
+
+const newText = prompt('Update the Todo', updatedTodo.text);
+
+if(newText) {
+	updatedTodo.text = newText
+}
+renderTodos();
+}
+
+
+function deleteTodo (id) {
+
+todos = todos.filter((item)=> item.id !=id);
+
+
+renderTodos();
+}
+
+// to invoke addTodo 
+addButton.addEventListener('click', addTodo);
+
