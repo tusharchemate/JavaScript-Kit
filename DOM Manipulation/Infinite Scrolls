@@ -1,0 +1,55 @@
+<html>
+  <head>
+    <style>
+      #container {
+       margin: 0 5px;
+       padding:10px;
+       width:400px;
+       height:300px;
+       border:1px solid grey;
+       overflow:auto;
+      }
+      .item {
+        background:#f0f0f0;
+        border-radius: 4px;
+        padding:4px;
+        margin:4px;
+      }   
+    </style>
+    <body>
+      <div id="container">
+    <h2 id='stick'>
+    Infinite Scrollbar
+    </h2>  
+      </div>
+    </body>
+  </head>
+</html>
+
+_------------------------- JS -------------------------------------
+
+
+const container = document.getElementById('container');
+
+const fetchData = () => {
+  return Array.from({length:10});
+}
+
+const loadMoreItems =()=> {
+	const data = fetchData();
+  
+  data.forEach((item)=> {
+  	const newDiv = document.createElement('h3'); // div , h1
+    newDiv.textContent ='item';
+    newDiv.classList.add('item');
+    container.appendChild(newDiv);
+  })
+}
+
+container.addEventListener('scroll', () => {
+  if (container.scrollTop + container.clientHeight >= container.scrollHeight) {
+    loadMoreItems();
+  }
+});
+
+loadMoreItems();
