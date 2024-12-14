@@ -1,0 +1,57 @@
+import {useReducer} from 'react';
+
+const stepChangeReducer = (state, action) => {
+    switch(action.type) {
+      case 'Next' :
+        return {
+          ...state,
+          step: state.step + 1,
+        };
+        
+        case 'Prev' :
+          return {
+            ...state,
+            step: state.step - 1,
+          }
+      default: 
+      return state;
+    }
+}
+
+const MultistepForm = () => {
+  // multistep form
+  // state
+  const [state, dispatch] = useReducer(stepChangeReducer, {step: 1});
+
+  const renderStep =()=> {
+      switch(state.step) {
+          case 1 : {
+            return (
+              <>
+              <div> Tushar </div>
+              <button onClick={() => dispatch({ type: 'Next' })}>Next</button>
+              </>
+            )
+          }
+
+          case 2 : {
+            return (
+              <>
+              <div> John </div>
+              <button onClick={() => dispatch({ type: 'Prev' })}>Prev</button>
+              </>
+            )
+          }
+      }
+  }
+
+  return (
+    <div>
+        MultiStep Form
+       {renderStep()}
+    </div>
+  )
+
+}
+
+export default MultistepForm;
