@@ -1,0 +1,113 @@
+import react, {useState} from 'react';
+
+const EditableTable = () => {
+const initialData = [
+  { id: 1, name: 'Tushar', age: 20, address:'Pune' },
+  { id: 2, name: 'Kiran', age: 22 },
+];
+
+// state
+const [data, setData] = useState(initialData);
+
+// handlers
+const handleChange = (e, id, field)=> {
+  const newValue = e.target.value; 
+  const updatedData = data.map((item) => {
+    if(item.id == id) {
+        return {
+          ...item,
+          [field]: newValue
+        }
+    }
+    return item;
+  })
+  setData(updatedData);
+}
+
+const onDelete = (id) => {
+  const updatedData = data.filter((item)=> item.id !== id )
+  setData(updatedData);
+}
+
+const addNewRow = () => {
+  const lastItem = data[data.length-1];
+  const newRow ={
+      id: lastItem ? lastItem.id + 1 : 1,
+      name: '',
+      age:'',
+      address:'' 
+    } 
+    const updatedData = [...data, newRow];
+    setData(updatedData);
+}
+
+const onSave =()=> {
+  console.log("data", data);
+}
+
+
+  return (
+      <div> 
+          <table>
+            <thead>
+              <tr>
+                <th> 
+                  Id
+                </th>
+                <th> 
+                  Name
+                </th>
+                <th> 
+                  Age
+                </th>
+                <th> 
+                 Address
+                </th>
+                 <th> 
+                 Actions
+                </th>
+                </tr>
+            </thead>
+            <tbody>
+              {data?.map((item) => (
+                <tr key={item.id}>
+                  <td>
+                    <input disabled type="text"
+                    value={item.id} 
+                    onChange={(e) => handleChange(e, item.id, 'id')}  />
+                  </td>
+
+                  <td>
+                    <input type="text" 
+                    value={item.name} 
+                    onChange={(e)=>handleChange(e, item.id, 'name')} />
+                  </td>
+                   <td>
+                    <input type="text" 
+                    value={item.age}
+                    onChange={(e)=>handleChange(e, item.id, 'age')} />
+                  </td>
+
+                  <td>
+                    <input type="text"
+                     value={item.address} 
+                     onChange={(e)=>handleChange(e, item.id, 'address')} />
+                  </td>
+                  <td>
+                    <button onClick={()=> onDelete(item.id)}> x </button>
+                  </td>
+              </tr>
+              ))}
+              </tbody>
+          </table>
+          <button onClick={addNewRow}>
+            Add New Row
+          </button>
+          <button onClick={onSave}>
+            Save
+          </button>
+      </div>
+  )
+}
+
+export default EditableTable;
