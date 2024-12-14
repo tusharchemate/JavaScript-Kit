@@ -13,3 +13,28 @@ let b;
 
 console.log(c); // ReferenceError: Cannot access 'c' before initialization
 const c; // SyntaxError: Missing initializer in const declaration
+
+
+--> Function -->
+
+letMeTry(); // Output: "You Won"
+
+function letMeTry() {
+    console.log('You Won');
+}
+
+// This works because `letMeTry` is a **function declaration**. 
+// Function declarations are hoisted, meaning the function is moved to the top 
+// of the scope during the compilation phase and is available for use before its definition.
+
+willBeSuccess(); // ReferenceError: Cannot access 'willBeSuccess' before initialization
+
+const willBeSuccess = () => {
+    console.log('May be');
+};
+
+// This throws a ReferenceError because `willBeSuccess` is a **variable declaration** 
+// using `const`. Variables declared with `const` (or `let`) are hoisted but remain in the 
+// Temporal Dead Zone (TDZ) until their initialization. 
+// The arrow function itself is not hoisted, and it cannot be called before its initialization.
+
