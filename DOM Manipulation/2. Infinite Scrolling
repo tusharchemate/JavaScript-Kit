@@ -1,0 +1,65 @@
+<html>
+  <head>
+    <title>
+     Infinite Scrolling ...
+    </title>
+    
+  </head>
+  <style>
+  #container {
+      width:400px;
+      height:300px;
+      border:1px solid #f0f0f0;
+      overflow:auto;
+  }
+  .list {
+    border: 1px solid #f0f0f0;
+    border-radius:4px;
+    padding:10px;
+    margin:10px;
+    
+  }
+  
+  </style>
+  <body>
+  
+  <div id="container">
+  
+  
+  </div>
+  
+  
+  </body>
+
+</html>
+
+---------------- JS ----------------
+
+
+const container = document.getElementById('container');
+
+const fetchData =()=> {
+	return Array.from({length:10}, (_, i)=> `Item ${i+1}`);
+} 
+
+
+const loadMoreData =() => {
+const data = fetchData();
+
+data.forEach((item)=> {
+
+const div = document.createElement('div');
+    div.textContent = item;  
+    div.classList.add('list'); 
+    container.appendChild(div);
+})
+}
+
+
+container.addEventListener('scroll',()=> {
+if(container.scrollTop + container.clientHeight >= container.scrollHeight) {
+	loadMoreData();
+}
+})
+
+loadMoreData();
