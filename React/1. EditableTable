@@ -1,0 +1,97 @@
+import React, { useState } from 'react';
+
+const  EditableTable =(props) => {
+  const initialData = [
+    { id: 1, name: 'Tushar', age: 22 },
+    { id: 2, name: 'John', age: 25},
+  ];
+
+  // state
+  const [data, setData] = useState(initialData);
+
+  // handlers
+  const handleChange = (e, id, field) => {
+    const newValue = e.target.value;
+    const updatedData = data.map(item => 
+      item.id === id ? { ...item, [field.toLowerCase()]: newValue } : item
+    );
+    setData(updatedData); 
+  };
+
+  const addMoreRows =()=> {
+      const lastItem = data[data.length - 1];
+      console.log(lastItem);
+      const newRow = {
+        id: lastItem ? lastItem.id +1 : 1,
+        name:'',
+        age:0,
+      }
+      const updatedData = [...data, newRow];
+      setData(updatedData);
+  }
+
+  const onDelete =(id)=> {
+    const updatedData = data.filter((item)=> item.id !==id);
+    setData(updatedData);
+  }
+
+
+  const onSave =() => {
+      console.log('Data', data);
+  }
+
+  return (
+    <div className='App'>
+      <table border='1'>
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th> Action </th>
+          </tr>
+        </thead>
+        <tbody>
+          {data?.map((item) => (
+            <tr key={item.id}>
+              <td>
+                <input 
+                  type="text" 
+                  value={item.id} 
+                  onChange={(e) => handleChange(e, item.id, 'id')} 
+                />
+               
+              </td>
+              <td>
+                <input 
+                  type="text" 
+                  value={item.name} 
+                  onChange={(e) => handleChange(e, item.id, 'name')} 
+                />
+              </td>
+              <td>
+                <input 
+                  type="text" 
+                  value={item.age} 
+                  onChange={(e) => handleChange(e, item.id, 'age')} 
+                />
+              </td>
+              <td>
+                 <button onClick={()=> onDelete(item.id)} >
+                  X
+                  </button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      <button onClick={addMoreRows}>
+        Add More Rows
+        </button>
+      <button onClick={onSave} >
+        Save
+        </button>
+    </div>
+  );
+}
+export default EditableTable;
