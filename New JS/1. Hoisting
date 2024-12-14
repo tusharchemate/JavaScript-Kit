@@ -1,0 +1,15 @@
+// Hoisting - 
+// Hoisting in JavaScript is a mechanism where variable and function declarations 
+// are moved to the top of their containing scope during the compilation phase. 
+
+// TDZ - Temporal Dead Zone (TDZ) occurs when we try to access variables declared 
+// with `let` or `const` before their initialization, which results in a ReferenceError.
+
+console.log(a); // undefined (hoisted, but initialized to undefined)
+var a; 
+
+console.log(b); // ReferenceError: Cannot access 'b' before initialization
+let b; 
+
+console.log(c); // ReferenceError: Cannot access 'c' before initialization
+const c; // SyntaxError: Missing initializer in const declaration
