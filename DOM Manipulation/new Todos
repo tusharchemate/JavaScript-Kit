@@ -1,0 +1,114 @@
+<html>
+  <head>
+    <title>
+      Todo App...
+    </title>
+   </head>
+  <body>
+    <input type="text" id="todoInput" />
+    <button id ='addTodo'>
+      Add todo
+    </button>
+    <ul id="todoList">
+    
+    </ul>
+  
+  </body>
+
+</html>
+
+----- css -----
+
+.completed {
+  text-decoration : line-through
+}
+
+
+------ js -----
+
+
+// Dom Selection
+const todoInput = document.getElementById('todoInput');
+const addButton = document.getElementById('addTodo');
+const todoList = document.getElementById('todoList');
+
+// create todos 
+let todos = [];
+// render todos
+const renderTodos = () => {
+ 	todoList.innerHTML =" ";
+  
+  todos.forEach((todo)=> {
+  // create li 
+  const li = document.createElement('li');
+  
+  // create span
+  const span = document.createElement('span');
+  span.textContent = todo.text;
+  li.appendChild(span);
+ 
+ 
+ // create button update
+ const updateBtn = document.createElement('button');
+ updateBtn.textContent = 'Update';
+ updateBtn.onclick =()=> onTodoUpdate(todo.id);
+ li.appendChild(updateBtn);
+ 
+ // complete btn
+ 
+ const toggleBtn =  document.createElement('button');
+ toggleBtn.textContent = todo.completed ? 'Undo' : 'Done';
+ toggleBtn.onclick =() => onToggle(todo.id);
+ li.appendChild(toggleBtn);
+ if(todo.completed) {
+ 	span.classList.add('completed');
+ }
+ 
+ // delete todo
+ 
+ const deleteBtn = document.createElement('button');
+ deleteBtn.textContent ='Delete';
+ deleteBtn.onclick = ()=> onDelete(todo.id);
+ li.appendChild(deleteBtn);
+ 
+
+  //  will append li to ul
+  todoList.appendChild(li);
+  })
+ 
+}
+
+
+const addTodo = () => {
+	const todo = todoInput.value.trim();
+  if(todo === "") return alert("Please Enter Todo..");
+  todos.push({id:Date.now(), text: todo, completed:false});
+  renderTodos();
+}
+
+// update 
+const onTodoUpdate = (id) => {
+  const checkMe = todos.find((item)=> item.id === id);
+  const updatedTodo = prompt("Update Todo", checkMe.text);
+  if(updatedTodo) {
+  	checkMe.text = updatedTodo;
+  }
+	renderTodos();
+}
+
+// on toggle 
+const onToggle = (id) => {
+
+	todos = todos.map((item)=> item.id === id ? {...item, completed:!item.completed} : item)
+
+renderTodos();
+}
+
+// on Delete 
+
+const onDelete =(id) => {
+	todos = todos.filter((todo)=> todo.id !== id);
+	renderTodos();
+}
+
+addButton.addEventListener('click', addTodo);
