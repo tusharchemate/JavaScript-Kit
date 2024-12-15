@@ -1,0 +1,33 @@
+const myDebounce = (func, delay)=> {
+	let timer;
+  	
+  return function (...args) {
+  	clearTimeout(timer);
+    timer = setTimeout(()=> {
+    	func.apply(this, args)
+    },delay); 
+  }
+}
+
+const inputValue = document.getElementById('inputValue');
+
+const handleInput = myDebounce(()=> {
+	console.log('Hey', inputValue.value);
+},1000)
+
+// add event listner on input
+inputValue.addEventListener('input', handleInput);
+
+
+---- 
+<html>
+  <head>
+    <title>
+     Debounce Implementaion ...
+    </title>
+   </head>
+  <body>
+     <input id="inputValue" type="text" />
+  </body>
+
+</html>
