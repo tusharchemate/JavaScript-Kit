@@ -1,0 +1,18 @@
+const inputValue = document.getElementById('inputValue');
+
+const myDebounce = (func, delay)=> {
+		let timer;
+    return function (...args) {
+    	clearTimeout(timer);
+     timer = setTimeout(()=>{
+        func.apply(this, args);
+      },delay); 
+    }
+}
+
+const inputHandler = myDebounce(()=> {
+		console.log('Hey', inputValue.value);
+}, 1000);
+
+
+inputValue.addEventListener('input', inputHandler);
