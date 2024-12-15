@@ -1,0 +1,83 @@
+import {useState} from 'react';
+
+const Todo = () => {
+// state 
+const initialTodos = [
+  {id:1, name:'Tushar', address:'Pune', completed:false},
+  {id:2, name:'John', address:'New York', completed:false}
+]
+const [todos, setTodos] = useState(initialTodos);
+const [todo, setTodo] = useState('');
+
+// handlers
+const onUpdate =(id) => {
+  const todoItem = todos.find((item)=> item.id == id);
+  const updatedText = prompt("Enter Todo to update", todoItem.name);
+  if(updatedText) {
+    todoItem.name = updatedText;
+  }
+
+  const updatedTodos = todos.map((item) =>
+        item.id === id ? todoItem : item
+      );
+
+  setTodos(updatedTodos);
+}
+ 
+const onDelete =(id) => {
+    const updatedTodos = todos.filter((todo)=> todo.id !==id);
+    setTodos(updatedTodos);
+}
+
+const onToggle = (id) => {
+const updatedTodo = todos.map((todo)=> todo.id ==id ? {...todo, completed: !todo.completed} : todo);
+  setTodos(updatedTodo);
+
+}
+
+const onChangeTodo = (e)=> {
+  const value = e.target.value; 
+  if(value) setTodo(value);
+}
+
+const addTodo =() => {
+  const updatedTodo = {
+    id:todos[todos.length - 1].id +1,
+    name:todo,
+    completed:false
+    };
+
+    setTodos([...todos, updatedTodo]);
+  }
+
+  return (
+    <div style={{ textAlign: 'center', marginTop: '20px' }}>
+      <h1>Todo List</h1>
+      Add Todo 
+      <input type="text" value={todo} onChange={(e)=>onChangeTodo(e)} />
+      <button onClick={addTodo} > Add todo </button>
+      {todos?.map((todo)=> (
+      <>
+          <li key={todo.id}>
+            <span> 
+              {todo.id}
+            </span>
+            <span > 
+              {todo.name}
+            </span>
+            <span> 
+              {todo.address}
+            </span>
+            <span> 
+             <button onClick={() => onUpdate(todo.id)}> Update </button>
+             <button  onClick={() => onDelete(todo.id)}> Delete </button>
+              <button onClick={() => onToggle(todo.id)}> {todo?.completed ? 'Undo' : 'Completed'}  </button>
+            </span>
+            </li>
+           </>
+      ))}
+    </div>
+  )
+
+}
+export default Todo;
