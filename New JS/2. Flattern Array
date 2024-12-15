@@ -1,0 +1,15 @@
+const arr = [1,2,34,[1222],[3333,[[[[[4]]]]]],222];
+
+const flatternArray = (arr)=> {
+    let flatArray = [];
+ 		for(let i = 0; i<arr.length; i++ ){
+      if(Array.isArray(arr[i])) {
+      	flatArray.push(...flatternArray(arr[i]))
+      } else {
+      	flatArray.push(arr[i]);
+      }
+    }
+    return flatArray;  
+}
+
+console.log(flatternArray(arr));
