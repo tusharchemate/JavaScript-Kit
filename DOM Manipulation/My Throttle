@@ -1,0 +1,22 @@
+// My Throttle
+
+const myThrottle = (func, delay)=> {
+	let lastCount = 0;
+  
+  return function (...args) {
+  
+  let now = Date.now();
+  
+  if( now - lastCount >= delay) {
+  	func(...args);
+    lastCount = now;
+  }
+  
+  }      
+}
+
+const handleScroll = myThrottle(()=> {
+	console.log('Scroll Position', window.scrollY, window.scrollX);
+}, 2000)
+
+window.addEventListener('scroll', handleScroll);
