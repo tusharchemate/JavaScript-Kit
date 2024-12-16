@@ -1,0 +1,19 @@
+const longestCommonPrefix = (strs) => {
+  if (strs.length === 0) return ""; 
+
+  const sortedStrArr = strs.sort(); // Sort the array alpha
+  const first = sortedStrArr[0]; // First string in the sorted array
+  const last = sortedStrArr[sortedStrArr.length - 1]; // Last string in the sorted array
+
+  let commonPrefix = "";
+
+  // Iterate up to the length of the shortest string (first)
+  for (let i = 0; i < first.length; i++) {
+    if (first[i] !== last[i]) break; // Break when characters differ
+    commonPrefix += first[i];
+  }
+
+  return commonPrefix;
+};
+
+console.log(longestCommonPrefix(['flower', 'flowe', 'flo'])); // Output: "flo"
