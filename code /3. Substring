@@ -1,0 +1,9 @@
+// check string is sub string or not 
+
+const subString =(str, substring) => {
+  const index = str.indexOf(substring);
+  return index !== -1 ? true : false;
+}
+
+
+console.log(subString('Hello, Tushar', 'shar'));
