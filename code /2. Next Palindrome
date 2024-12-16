@@ -1,0 +1,17 @@
+// find next Palindrome number
+
+const palindrome =(num) => {
+	let numStr = num.toString();
+  return numStr == numStr.split("").reverse().join("");
+}
+
+const nextPalindrome =(num) => {
+	num++;
+  while(!palindrome(num)) {
+  	num++;
+  }
+  return num;
+  
+}
+
+console.log(nextPalindrome('123'));
