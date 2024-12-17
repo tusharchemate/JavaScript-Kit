@@ -1,0 +1,39 @@
+import { useState } from 'react';
+
+const ImageCarousel = () => {
+  const imageArray = [
+    { index: 1, imgSrc: 'index.jpg' },
+    { index: 2, imgSrc: 'images.jpg' },
+    { index: 3, imgSrc: 'abc.jpg' },
+  ];
+
+  const [currentSlide, setCurrentSlide] = useState(imageArray[0]);
+
+  const onNext = () => {
+    setCurrentSlide((prev) => {
+      const nextIndex = prev.index === imageArray.length ? 1 : prev.index + 1;
+      return imageArray[nextIndex - 1];  // Decrement to match zero-based index
+    });
+  };
+
+  const onPrev = () => {
+    setCurrentSlide((prev) => {
+      const prevIndex = prev.index === 1 ? imageArray.length : prev.index - 1;
+      return imageArray[prevIndex - 1];  // Decrement to match zero-based index
+    });
+  };
+
+  console.log('currentSlide', currentSlide);
+
+  return (
+    <div style={{ textAlign: 'center', marginTop: '20px' }}>
+      <img src={currentSlide.imgSrc} alt={currentSlide.imgSrc} />
+      <div>
+        <button onClick={onPrev}>Prev</button>
+        <button onClick={onNext}>Next</button>
+      </div>
+    </div>
+  );
+};
+
+export default ImageCarousel;
