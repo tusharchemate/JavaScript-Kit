@@ -1,0 +1,47 @@
+import { useState } from 'react';
+
+const items = [
+  {
+    title:'Item 1',
+    content:'Hey this is the no 1'
+  },
+  {
+    title:'Item 2',
+    content:'Hey Cool Item 2',
+  },
+  {
+    title:'Item 3',
+    content:'hey Tush',
+  }
+];
+
+const Accordion = ()=> {
+  
+  const [activeIndex, setActiveIndex] = useState(null);
+
+  const viewContent =(index) => {
+      setActiveIndex(index);
+  }
+
+   return (
+      <div>
+        {items?.map((item, index)=> (
+          <div>
+              <button onClick={()=>viewContent(index)} > {item.title} </button>
+              <div>
+            {activeIndex === index && (
+              <div> {item.content} </div>
+            )}
+            </div>
+          </div>  
+          
+    
+
+        ))}
+
+
+      </div>
+   );
+};
+
+export default Accordion;
