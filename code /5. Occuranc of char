@@ -1,0 +1,13 @@
+const findOccurance =(str) => {
+
+	let countOfChar = {};
+  
+  for(let char of str) {	
+  
+  countOfChar[char] = (countOfChar[char] || 0) + 1;
+ }
+  
+  return countOfChar;
+}
+
+console.log('countOf', findOccurance([1,1,1,1,1,'tushaarrrr']));
