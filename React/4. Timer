@@ -1,0 +1,51 @@
+import { useEffect, useState } from 'react';
+
+
+const StopWatchTimer = ()=> {
+
+  const [isRunning, setIsRunning] = useState(null);
+
+  const [timer, setTimer] = useState(36100);
+
+  useEffect(()=> {
+    let interval;
+    if(isRunning) {
+      interval =   setInterval(()=> {
+          setTimer((prev)=> prev + 1);
+        }, 1000);
+    }
+    return ()=> clearInterval(interval);
+  },[isRunning]);
+
+  console.log(timer);
+
+  const startTimer =()=> {
+    setIsRunning(true);
+  }
+  const pauseTimer =() => {
+      setIsRunning(false);
+  }
+
+  const reset =()=> {
+      setIsRunning(false);
+      setTimer(0);
+  }
+
+  const formatTimer =(time)=> {
+    let hours = time / 36000;
+    let min = (time % 36000) / 60 ;
+    let sec = time % 60;
+    return `${Math.floor(hours.toString().padStart(2, '0')) } : ${Math.floor(min.toString().padStart(2, '0'))} : ${(sec.toString().padStart(2, '0'))}`
+  }
+
+   return (
+      <div>
+        {formatTimer(timer)} 
+        <button onClick={startTimer} > Start </button>
+        <button onClick ={pauseTimer}> Pause </button>
+        <button onClick={reset} > Reset </button>
+      </div>
+   );
+};
+
+export default StopWatchTimer;
