@@ -1,0 +1,52 @@
+import { useEffect, useState } from 'react';
+
+const items = [
+  {
+    title:'Image 1',
+    src:'Image1.jpg'
+  },
+  {
+    title:'Image 2',
+    src:'Image2.png',
+  },
+  {
+    title:'Image 3',
+    src:'Image3.png',
+  }
+];
+
+const ImageCorousel = ()=> {
+
+  const [currentSlide, setCurrentSlide] = useState(0);
+  
+  const onPrev =()=> {
+    setCurrentSlide((prev) => (prev - 1));
+  }
+
+  const onNext =()=> {
+    setCurrentSlide((prev) => (prev + 1));
+  }
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1));
+    }, 3000);
+
+    // Cleanup the interval on component unmount
+    return () => clearInterval(interval);
+  }, []);
+ 
+
+
+   return (
+      <div>
+          <img src={items[currentSlide]?.src} alt={items[currentSlide]?.title} />
+       
+        <button onClick={onPrev}> Prev </button>
+        <button onClick={onNext}> Next </button>
+
+      </div>
+   );
+};
+
+export default ImageCorousel;
