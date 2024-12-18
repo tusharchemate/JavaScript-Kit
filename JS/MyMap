@@ -1,0 +1,15 @@
+
+Array.prototype.myMap = function (callback) {
+let res = [];
+
+for(let i = 0; i<this.length; i++ ){
+	if(callback) {
+  res.push(callback(this[i], i, this));
+  }
+}
+
+return res;
+}
+
+
+console.log([1,2].myMap((ele)=> ele *2 ));
