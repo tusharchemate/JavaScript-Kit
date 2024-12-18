@@ -1,0 +1,19 @@
+const flatternArray =(arr) => {
+	
+  let flatArray = [];
+  
+  for(let i in arr) {
+
+  	if(Array.isArray(arr[i])) {	
+    	flatArray = [...flatArray, ...flatternArray(arr[i])];
+    } else {
+    flatArray.push(arr[i]);
+    }
+    
+  }
+  
+  return flatArray;
+ 
+}
+
+console.log(flatternArray([1,1,1,1,[3333,[33333],2]]));
