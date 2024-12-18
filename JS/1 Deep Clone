@@ -1,0 +1,27 @@
+const deepClone =(obj)=> {
+
+if(obj == null || typeof obj !='object') return obj;
+
+let clone = Array.isArray(obj) ? [] : {};
+
+for(let i in obj) {
+	clone[i] = deepClone(obj[i]);
+}
+return clone;
+
+}
+
+const original = {
+  name: "John",
+  age: 30,
+  address: {
+    city: "New York",
+    zip: 12345,
+  },
+  hobbies: ["reading", "traveling"],
+};
+
+const cloned = deepClone(original);
+
+console.log("Original:", original);
+console.log("Cloned:", cloned);
