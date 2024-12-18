@@ -1,0 +1,32 @@
+const promisAllPolyfils = (promises)=> {
+	
+  return new Promise((resolve, reject)=> {
+  let completed = 0;
+  let results = [];
+  
+  promises.forEach((promise, index)=> {
+  Promise.resolve(promise).then(val=> {
+  results[index] = val;
+  completed++;
+  
+  if(completed === promises.length) resolve(results);
+  	
+  }).catch(reject);
+ })
+  
+  })
+}
+
+
+const promise1 = Promise.resolve(3);
+const promise2 = new Promise((resolve, reject) => setTimeout(resolve, 100, 'foo'));
+const promise3 = 42;
+promisAllPolyfils([promise1, promise2, promise3])
+  .then(values => {
+    console.log(values); // [3, 'foo', 42]
+  })
+  .catch(error => {
+    console.error(error);
+  });
+
+
