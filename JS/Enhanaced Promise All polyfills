@@ -1,0 +1,25 @@
+const promiseAllPolyfils = (promises) => {
+	
+  return new Promise((resolve, rej)=> {
+  	let completed = 0;
+    let results = [];
+    //will iterate over promises array
+    promises.forEach((promise, index) => {
+    	Promise.resolve(promise)
+      .then(val => {
+      	results[index] = val;
+        completed++;  
+        if(completed === promises.length) resolve(results);
+     })
+     
+    })
+    
+  })
+}
+
+const prm = 3;
+
+const promise1 = 2;
+promiseAllPolyfils([promise1,prm]).then(val=> {
+	console.log(val)
+}).catch(err=> console.log(err));
