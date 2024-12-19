@@ -1,0 +1,59 @@
+import { useEffect, useState } from 'react';
+
+const CricketScore = ()=> {
+
+  const [balls, setBalls]= useState(1);
+  const [runs, setRuns] = useState(0);
+
+  const [tableData, setTableData] = useState([]);
+
+  const [total, setTotal ] = useState(0);
+
+
+
+  const updateRuns = () => {
+    if (runs < 0 || runs > 6) {
+        alert("Please enter runs between 0 and 6.");
+        return;
+    }
+
+    setTableData((prev) => [...prev, { balls, runs }]);
+    setBalls((prev) => prev + 1);
+    
+    const newTotal = tableData.reduce((acc, item) => acc + parseInt(item.runs), parseInt(runs));
+    setTotal(newTotal);
+
+    setRuns(""); 
+};
+
+
+   return (
+      <div>
+        Cricket Score
+        <input type="number" onChange={(e)=> setRuns(e.target.value)} value={runs} min={0} max={6} />
+        <button onClick={updateRuns} > Update Score </button>
+
+        <table border={1}>
+          <thead>
+            <tr>
+              <th> Balls</th>
+              <th> Runs </th>
+            </tr>
+            </thead>
+            <tbody>
+                {tableData?.map((score)=> (
+                  <tr>
+                    <td> {score.balls} </td>
+                    <td> {score.runs} </td>
+                  </tr>
+                ))}
+            </tbody>
+        </table>  
+
+        Live Score - {total}
+
+      </div>
+   );
+};
+
+export default CricketScore;
